@@ -21,3 +21,8 @@ export interface WorldCapitalsByContinent {
     south_america: string[];
     australia: string[];
 }
+
+export interface PredictedPlace {
+    city: string;
+    country: string;
+}

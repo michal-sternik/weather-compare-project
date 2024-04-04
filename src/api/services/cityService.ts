@@ -1,5 +1,5 @@
 
-import weaterApi from '..';
+import { weaterApi } from '..';
 import { OPENWEATHER_API_KEY } from '../../api-tokens';
 import { CityListItemProps } from '../../types/cityTypes';
 import { convertCityData } from '../../utils/country_utils';
