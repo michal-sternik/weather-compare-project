@@ -1,9 +1,6 @@
 import React from 'react';
 
-import { Grid, Stack, SxProps } from '@mui/material';
-import { Outlet } from 'react-router-dom';
-
-import THEME from '../../theme';
+import { Stack } from '@mui/material';
 import { weatherWorkspaceContainerStyle, weatherWorkspaceMainAreaStyle } from './RootLayoutStyles';
 import CitiesPanel from '../CitiesPanel/CitiesPanel';
 import CitiesMap from '../CitiesMap/CitiesMap';
