@@ -13,7 +13,7 @@ const citiesListItemStyle: SxProps = {
 const citiesListItemContentStyle: SxProps = {
     backgroundColor: '#2C2C2C',
     borderRadius: '5px',
-    padding: '12px 16px',
+    padding: '1vw 0vw 1vw 1vw',
     cursor: 'pointer',
 };
 
