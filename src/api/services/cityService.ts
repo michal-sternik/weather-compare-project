@@ -13,8 +13,7 @@ class CityService {
 
   public static async getCitiesWeather(citiesNames: string[]): Promise<CityListItemProps[]> {
     const citiesData = []
-    // eslint-disable-next-line no-debugger
-    debugger
+
     for (let i = 0; i < citiesNames.length; i++) {
       const cityData = (await weaterApi.get(`/weather?q=${citiesNames[i]}&appid=${OPENWEATHER_API_KEY}`)).data
       citiesData.push(convertCityData(cityData))
