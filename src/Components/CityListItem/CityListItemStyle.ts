@@ -7,9 +7,7 @@ const citiesListItemStyle: SxProps = {
     '&:last-child': {
         padding: '12px 12px 12px 12px',
     },
-    '&:first-of-type': {
-        padding: '0px 12px 0px 12px',
-    },
+
 };
 
 const citiesListItemContentStyle: SxProps = {

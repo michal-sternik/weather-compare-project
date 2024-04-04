@@ -1,31 +1,29 @@
-
-
-// import { CENTER_OF_EARTH, MAPBOX_ACCESS_TOKEN, MAPBOX_MAP_STYLE } from '../../api-tokens';
-// import { citiesMapStyle } from './CitiesMapStyles';
-
 import Map, { Marker } from 'react-map-gl';
 import { MAPBOX_ACCESS_TOKEN, MAPBOX_MAP_STYLE } from "../../api-tokens";
-
-
+import "mapbox-gl/dist/mapbox-gl.css";
+import { useCitiesContext } from '../../context';
 
 function CitiesMap() {
+  const citiesList = useCitiesContext();
 
   return (
     <Map
-
       mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
       initialViewState={{
-        latitude: 59.4211,
-        longitude: 19.6903,
-        zoom: 3,
+        latitude: 20,
+        longitude: 0,
+        zoom: 1.3,
       }}
       style={{ width: "100vw", height: "100vh" }}
       mapStyle={MAPBOX_MAP_STYLE}
     >
-      <Marker longitude={59.4} latitude={19.8} color="red" />
-    </Map>
+      {citiesList && citiesList.map(city => (
 
+        <Marker key={city.id} longitude={city.coord.longitude} latitude={city.coord.latitude} color="red" ></Marker>
+
+      ))}
+    </Map>
   );
 }
 
-export default CitiesMap
+export default CitiesMap;

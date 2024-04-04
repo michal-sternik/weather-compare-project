@@ -13,7 +13,6 @@ import { NavLink } from "react-router-dom";
 
 function CityListItem({ id, name, temperature, windSpeed, clouds }: CityListItemProps) {
 
-  console.log(name)
   return (
     <Stack flexDirection="column" sx={citiesListItemStyle}>
       <NavLink
@@ -38,7 +37,7 @@ function CityListItem({ id, name, temperature, windSpeed, clouds }: CityListItem
               columnGap="8px"
               rowGap="2px"
               flexWrap="wrap"
-              marginBottom="8px"
+              margin="4px 0 4px 0"
             >
               <Typography sx={citiesListItemTitleStyle}>{name}</Typography>
               <Stack flexDirection="row" gap="4px">

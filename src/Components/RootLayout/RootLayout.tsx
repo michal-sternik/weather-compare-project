@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Stack } from '@mui/material';
 import { weatherWorkspaceContainerStyle, weatherWorkspaceMainAreaStyle } from './RootLayoutStyles';
-import CitiesPanel from '../CitiesPanel/CitiesPanel';
 import CitiesMap from '../CitiesMap/CitiesMap';
+import CitiesPanel from '../CitiesPanel/CitiesPanel';
 
 
 
