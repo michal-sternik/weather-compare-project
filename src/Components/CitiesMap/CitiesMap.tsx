@@ -4,7 +4,7 @@
 // import { citiesMapStyle } from './CitiesMapStyles';
 
 import Map, { Marker } from 'react-map-gl';
-import { MAPBOX_ACCESS_TOKEN } from "../../api-tokens";
+import { MAPBOX_ACCESS_TOKEN, MAPBOX_MAP_STYLE } from "../../api-tokens";
 
 
 
@@ -20,7 +20,7 @@ function CitiesMap() {
         zoom: 3,
       }}
       style={{ width: "100vw", height: "100vh" }}
-      mapStyle="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
+      mapStyle={MAPBOX_MAP_STYLE}
     >
       <Marker longitude={59.4} latitude={19.8} color="red" />
     </Map>
