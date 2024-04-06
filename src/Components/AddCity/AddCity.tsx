@@ -13,20 +13,18 @@ const AddCity = () => {
     const [candidatesList, setCandidatesList] = useState<PredictedPlace[]>([]);
 
     useEffect(() => {
-        setIsTyping(true);
         if (inputValue) {
+            setIsTyping(true);
             const timer = setTimeout(() => {
                 CityAutocompleteService.getListOfPredictetCities(inputValue).then(response => {
                     const filteredResponse = response.filter(item => item.city !== undefined);
                     setCandidatesList(filteredResponse);
-                })
-                setIsTyping(false);
+                }).finally(() => setIsTyping(false))
             }, 400);
             return () => {
                 clearTimeout(timer);
             };
         }
-        setIsTyping(false);
         setCandidatesList([]);
 
         return () => { };

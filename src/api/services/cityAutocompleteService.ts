@@ -3,6 +3,7 @@ import { citiesApi } from '..';
 import { CITYAPI_API_KEY } from '../../api-tokens';
 import { PredictedPlace } from '../../types/cityTypes';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const mockData = {
     "results": [
         {
@@ -149,8 +150,8 @@ const mockData = {
 class CityAutocompleteService {
     //mocked data to save api calls
     public static async getListOfPredictetCities(prompt: string): Promise<PredictedPlace[]> {
-        // const citiesData = (await citiesApi.get(`autocomplete?text=${prompt}&limit=3&type=city&format=json&apiKey=${CITYAPI_API_KEY}`)).data
-        const citiesData = mockData
+        const citiesData = (await citiesApi.get(`autocomplete?text=${prompt}&limit=3&type=city&format=json&apiKey=${CITYAPI_API_KEY}`)).data
+        // const citiesData = mockData
         // eslint-disable-next-line no-debugger
         debugger;
         if (citiesData.results && citiesData.results.length > 0) {
