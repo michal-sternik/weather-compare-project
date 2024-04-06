@@ -8,7 +8,8 @@ import { convertCityData } from '../../utils/country_utils';
 class CityService {
 
   public static async getCityWeather(cityName: string): Promise<CityListItemProps> {
-    return (await weaterApi.get(`/weather?q=${cityName}&appid=${OPENWEATHER_API_KEY}`)).data
+    const cityData = (await weaterApi.get(`/weather?q=${cityName}&appid=${OPENWEATHER_API_KEY}`)).data
+    return convertCityData(cityData, true)
   }
 
   public static async getCitiesWeather(citiesNames: string[]): Promise<CityListItemProps[]> {
@@ -16,7 +17,7 @@ class CityService {
 
     for (let i = 0; i < citiesNames.length; i++) {
       const cityData = (await weaterApi.get(`/weather?q=${citiesNames[i]}&appid=${OPENWEATHER_API_KEY}`)).data
-      citiesData.push(convertCityData(cityData))
+      citiesData.push(convertCityData(cityData, false))
     }
     return citiesData
   }

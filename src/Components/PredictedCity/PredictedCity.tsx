@@ -3,8 +3,12 @@ import { IconButton, Stack, Tooltip, Typography } from '@mui/material'
 import { citiesListItemStyle, citiesListItemContentStyle } from '../CityListItem/CityListItemStyle'
 import AddLocationIcon from '@mui/icons-material/AddLocation';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
+import { useCityContext } from '../../context';
 
 const PredictedCity = ({ city, country }: PredictedPlace) => {
+
+    const { addCityToCitiesList } = useCityContext();
+
     return (
         <Stack flexDirection="column" sx={citiesListItemStyle}>
 
@@ -48,7 +52,7 @@ const PredictedCity = ({ city, country }: PredictedPlace) => {
                         }}>{country}</Typography>
 
                         <Tooltip title="Add to comparison" placement="right">
-                            <IconButton onClick={() => { }}>
+                            <IconButton onClick={() => addCityToCitiesList(city!)}>
                                 <ArrowDropDownCircleIcon sx={{
                                     color: '#DDDDDD', fontSize: "1.2vw",
                                     whiteSpace: "nowrap",

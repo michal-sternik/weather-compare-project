@@ -5,7 +5,7 @@ export interface CityListItemProps {
     temperature: number;
     windSpeed: number;
     clouds: number;
-
+    addedByUser: boolean
 }
 
 export interface Coord {
@@ -23,6 +23,6 @@ export interface WorldCapitalsByContinent {
 }
 
 export interface PredictedPlace {
-    city: string;
+    city: string | undefined;
     country: string;
 }

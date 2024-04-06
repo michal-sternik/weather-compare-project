@@ -8,3 +8,14 @@ export function useCitiesContext() {
 
     return citiesList;
 }
+
+
+export const CityContext = createContext<{
+    addCityToCitiesList: (cityName: string) => Promise<void>;
+    removeCityFromList: (id: number) => void;
+}>({
+    addCityToCitiesList: async () => { },
+    removeCityFromList: () => { }
+});
+
+export const useCityContext = () => useContext(CityContext);
