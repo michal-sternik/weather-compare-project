@@ -14,7 +14,7 @@ export function randomCapitals(world_capitals_by_continent: WorldCapitalsByConti
 
 
 
-export function convertCityData(cityData: any): CityListItemProps {
+export function convertCityData(cityData: any, addedByUser: boolean): CityListItemProps {
   const coord: Coord = {
     latitude: cityData.coord.lat,
     longitude: cityData.coord.lon
@@ -26,6 +26,7 @@ export function convertCityData(cityData: any): CityListItemProps {
     coord: coord,
     temperature: cityData.main.temp,
     windSpeed: cityData.wind.speed,
-    clouds: cityData.clouds.all
+    clouds: cityData.clouds.all,
+    addedByUser: addedByUser
   };
 }
