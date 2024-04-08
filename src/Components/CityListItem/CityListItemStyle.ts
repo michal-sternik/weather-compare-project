@@ -24,7 +24,11 @@ const citiesListItemTitleStyle: SxProps = {
     fontSize: '16px',
     fontWeight: '600',
 };
-
+const cityChipWeatherStyle: SxProps = {
+    fontFamily: "Open Sans, sans-serif",
+    fontWeight: "bold",
+    fontSize: "12px",
+}
 
 
 export {
@@ -32,5 +36,5 @@ export {
     citiesListItemContentStyle,
     citiesListItemTitleStyle,
     citiesListItemContentLinkStyle,
-
+    cityChipWeatherStyle
 };

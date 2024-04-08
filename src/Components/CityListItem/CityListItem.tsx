@@ -8,10 +8,10 @@ import {
   citiesListItemStyle,
   citiesListItemContentStyle,
   citiesListItemTitleStyle,
+  cityChipWeatherStyle,
 } from "./CityListItemStyle";
 
 import { CityListItemProps } from "../../types/cityTypes";
-import { NavLink } from "react-router-dom";
 import { useCityContext } from "../../context";
 import { useState } from "react";
 
@@ -32,7 +32,6 @@ function CityListItem({ id, name, temperature, windSpeed, clouds, addedByUser, i
 
   const { removeCityFromList } = useCityContext();
 
-  console.log(name, addedByUser)
   return (
     <Stack flexDirection="column" sx={citiesListItemStyle}>
 
@@ -71,33 +70,21 @@ function CityListItem({ id, name, temperature, windSpeed, clouds, addedByUser, i
                 size="small"
                 label={`${Math.floor(temperature - 273)} °C`}
                 icon={<ThermostatIcon />}
-                sx={{
-                  fontFamily: "Open Sans, sans-serif",
-                  fontWeight: "bold",
-                  fontSize: "12px",
-                }}
+                sx={cityChipWeatherStyle}
               />
               <Chip
                 variant="outlined"
                 size="small"
                 label={`${windSpeed} m/s`}
                 icon={<AirIcon />}
-                sx={{
-                  fontFamily: "Open Sans, sans-serif",
-                  fontWeight: "bold",
-                  fontSize: "12px",
-                }}
+                sx={cityChipWeatherStyle}
               />
               <Chip
                 variant="outlined"
                 size="small"
                 label={`${clouds} %`}
                 icon={<CloudIcon />}
-                sx={{
-                  fontFamily: "Open Sans, sans-serif",
-                  fontWeight: "bold",
-                  fontSize: "12px",
-                }}
+                sx={cityChipWeatherStyle}
               />
 
             </Stack>
