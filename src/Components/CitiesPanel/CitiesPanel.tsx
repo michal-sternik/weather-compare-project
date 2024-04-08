@@ -12,7 +12,7 @@ import {
   Pagination,
 } from "@mui/material";
 import { ArrowUpward, ArrowDownward } from "@mui/icons-material";
-import citiesListPanelStyles from "./CitiesPanelStyle";
+import { citiesListPanelStyles, sortRadioButtonStyles, sortingPanelChipStyles } from "./CitiesPanelStyle";
 import CityListItem from "../CityListItem/CityListItem";
 import { useCitiesContext } from "../../context";
 import AddCity from "../AddCity/AddCity";
@@ -27,7 +27,7 @@ interface SortType {
   ascending: boolean;
 }
 
-function CitiesPanel() {
+function CitiesPanel({ isMapVisible }: { isMapVisible: boolean }) {
   const citiesList = useCitiesContext();
   const [sortBy, setSortBy] = useState<SortType | null>(null);
   const [filterOption, setFilterOption] = useState('pagination');
@@ -103,6 +103,7 @@ function CitiesPanel() {
       flexGrow={1}
       flexDirection="column"
       alignItems="center"
+      sx={{ display: { xs: isMapVisible ? 'none' : 'flex', md: 'flex' } }}
 
     >
       <AddCity />
@@ -122,11 +123,7 @@ function CitiesPanel() {
             size="small"
             label={`Temperature`}
             icon={getSortIcon("temperature")}
-            sx={{
-              fontFamily: "Open Sans, sans-serif",
-              fontWeight: "bold",
-              fontSize: "12px",
-            }}
+            sx={sortingPanelChipStyles}
           />
           <Chip
             onClick={() => handleSort("windSpeed")}
@@ -134,11 +131,7 @@ function CitiesPanel() {
             size="small"
             label={`Wind Speed`}
             icon={getSortIcon("windSpeed")}
-            sx={{
-              fontFamily: "Open Sans, sans-serif",
-              fontWeight: "bold",
-              fontSize: "12px",
-            }}
+            sx={sortingPanelChipStyles}
           />
           <Chip
             onClick={() => handleSort("clouds")}
@@ -146,11 +139,7 @@ function CitiesPanel() {
             size="small"
             label={`Cloud Cover`}
             icon={getSortIcon("clouds")}
-            sx={{
-              fontFamily: "Open Sans, sans-serif",
-              fontWeight: "bold",
-              fontSize: "12px",
-            }}
+            sx={sortingPanelChipStyles}
           />
         </Stack>
         <Stack display="flex" flexDirection="row" gap="10px" alignItems='center'>
@@ -166,16 +155,8 @@ function CitiesPanel() {
               value={filterOption}
               onChange={handleFilterChange}
             >
-              <FormControlLabel sx={{
-                padding: 0,
-                color: "#ffff",
-
-              }} value="pagination" control={<Radio />} label="Pagination" />
-              <FormControlLabel sx={{
-                padding: 0,
-                color: "#ffff",
-
-              }} value="full-list" control={<Radio />} label="Full List" />
+              <FormControlLabel sx={sortRadioButtonStyles} value="pagination" control={<Radio />} label="Pagination" />
+              <FormControlLabel sx={sortRadioButtonStyles} value="full-list" control={<Radio />} label="Full List" />
             </RadioGroup>
           </FormControl>
 
@@ -203,7 +184,7 @@ function CitiesPanel() {
 
       <Stack padding='10px' spacing={3} position='absolute' bottom='0'>
         {filterOption === 'pagination' ? (
-          <Pagination count={pagesCount} page={page} onChange={(event: React.ChangeEvent<unknown>, value: number) => setPage(value)} />
+          <Pagination count={pagesCount} page={page} onChange={(_event: React.ChangeEvent<unknown>, value: number) => setPage(value)} />
         ) : null}
       </Stack>
     </Stack >

@@ -1,6 +1,6 @@
 import { PredictedPlace } from '../../types/cityTypes'
 import { IconButton, Stack, Tooltip, Typography } from '@mui/material'
-import { citiesListItemStyle, citiesListItemContentStyle } from '../CityListItem/CityListItemStyle'
+import { citiesListItemStyle } from '../CityListItem/CityListItemStyle'
 import AddLocationIcon from '@mui/icons-material/AddLocation';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import { useCityContext } from '../../context';
@@ -42,14 +42,15 @@ const PredictedCity = ({ city, country }: PredictedPlace) => {
                             whiteSpace: "nowrap", color: '#DDDDDD'
                         }} />
                         <Typography sx={{
-                            fontSize: "0.8vw",
+                            fontSize: { xs: "1.8vw", md: '0.8vw' },
                             whiteSpace: "nowrap",
                             color: '#DDDDDD',
                             fontWeight: '600',
-                        }}>{city}</Typography>
+                        }
+                        } > {city}</Typography>
                         <Typography sx={{
                             color: '#DDDDDD',
-                            fontSize: "0.6vw",
+                            fontSize: { xs: "1.4vw", md: '0.6vw' },
                             whiteSpace: "nowrap",
                             fontWeight: '600',
                             opacity: 0.7
