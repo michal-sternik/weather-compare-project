@@ -27,6 +27,7 @@ export function convertCityData(cityData: any, addedByUser: boolean): CityListIt
     temperature: cityData.main.temp,
     windSpeed: cityData.wind.speed,
     clouds: cityData.clouds.all,
-    addedByUser: addedByUser
+    addedByUser: addedByUser,
+    icon: cityData.weather[0].icon
   };
 }

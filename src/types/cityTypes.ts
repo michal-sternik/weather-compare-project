@@ -5,7 +5,8 @@ export interface CityListItemProps {
     temperature: number;
     windSpeed: number;
     clouds: number;
-    addedByUser: boolean
+    addedByUser: boolean,
+    icon: string,
 }
 
 export interface Coord {

@@ -12,7 +12,7 @@ const citiesListItemStyle: SxProps = {
 
 const citiesListItemContentStyle: SxProps = {
     borderRadius: '5px',
-    padding: '1vw 0vw 1vw 1vw',
+    padding: '0vw 0vw 0vw 1vw',
     cursor: 'pointer',
 };
 

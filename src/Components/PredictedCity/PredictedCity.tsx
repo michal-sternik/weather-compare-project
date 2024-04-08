@@ -16,7 +16,11 @@ const PredictedCity = ({ city, country }: PredictedPlace) => {
                 flexDirection="row"
                 alignItems="center"
                 boxShadow={3}
-                sx={citiesListItemContentStyle}
+                sx={{
+                    borderRadius: '5px',
+                    padding: '1vw 0vw 1vw 1vw',
+                    cursor: 'pointer',
+                }}
             >
 
                 <Stack
