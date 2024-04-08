@@ -2,15 +2,21 @@ import Map, { Marker, MapRef } from 'react-map-gl';
 import { MAPBOX_ACCESS_TOKEN, MAPBOX_MAP_STYLE } from "../../api-tokens";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useCitiesContext } from '../../context';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Box, Button } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import WeatherMapIcon from '../WeatherMapIcon/WeatherMapIcon';
 
 function CitiesMap({ isMapVisible }: { isMapVisible: boolean }) {
   const citiesList = useCitiesContext();
-  const mapRef = useRef<MapRef>(null); // Określenie typu referencji mapRef
+  const mapRef = useRef<MapRef>(null);
   const [clicked, setClicked] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (isMapVisible && mapRef.current) {
+      mapRef.current.resize();
+    }
+  }, [isMapVisible, mapRef]);
 
   return (
     <Box sx={{
