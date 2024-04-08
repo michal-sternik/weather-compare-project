@@ -6,8 +6,11 @@ const CENTER_OF_EARTH = {
     longitude: 0,
     zoom: 3,
 };
+const MAX_ITEMS_PER_PAGE = 6;
+
 export {
     API_BASE_URL,
     CITIES_API_BASE_URL,
-    CENTER_OF_EARTH
+    CENTER_OF_EARTH,
+    MAX_ITEMS_PER_PAGE
 }
