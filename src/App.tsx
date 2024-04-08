@@ -33,8 +33,11 @@ function App() {
 
   const addCityToCitiesList = async (cityName: string) => {
     try {
-      const response = await CityService.getCityWeather(cityName)
-      setCitiesList([response, ...citiesList])
+      const newCity = await CityService.getCityWeather(cityName)
+      if (citiesList.some(city => city.id === newCity.id)) {
+        handleClickVariant("City already added", 'error');
+      }
+      else { setCitiesList([newCity, ...citiesList]) }
     }
     catch (e: unknown) {
       if (e instanceof AxiosError) {
